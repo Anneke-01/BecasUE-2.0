@@ -1,0 +1,68 @@
+{% extends 'layout.html'%}
+{%block title%}
+Log In
+{% endblock%}
+
+{% block main%}
+<div class="login-page">
+
+    <div class="form">
+        {% if message %}
+        <div class="alert alert-warning alert-dismissible fade show"
+            role="alert">
+            <strong>Holy guacamole!</strong> {{message}}
+            <button type="button" class="close" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif%}
+        <form class="register-form" action="/register" method="post">
+            <div class="title-form">Registrarse</div>
+            <!--Mensaje de errorrr-->
+            <div class="mb-3"> <!--style="box-shadow: rgb(15 15 15 / 10%) 1px 1px 1px 1px
+                inset;"-->
+                <input class="form-control" name="username"
+                    placeholder="Nombre de usuario" type="text" required />
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="password"
+                    placeholder="Contraseña" type="password" required />
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="confirmation"
+                    placeholder="Confirmar contraseña" type="password" required />
+            </div>
+            <button type="submit" class="btn btn-outline-dark"
+                style="width:100%;">Registrarse</button>
+            <p class="message">Ya tienes cuenta? <a href="#"
+                    style="color:#ee5b5b;">Iniciar sesión</a><p>
+                </form>
+                <form class="login-form" action="/login" method="post">
+                    <div class="title-form">Inicio de sesión</div>
+                    <div class="mb-3">
+                        <input class="form-control" name="username"
+                            placeholder="Nombre de usuario" type="text" required />
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" name="password"
+                            placeholder="Contraseña" type="password" required />
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark"
+                        style="width: 100%;">Iniciar sesión</button>
+                    <p class="message">Aún no estás registrado? <a href="#"
+                            style="color:#ee5b5b;">Crear una cuenta</a><p>
+                        </form>
+                    </div>
+                </div>
+
+                <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+                <script>
+                $('.message a').click(function() {
+                    $('form').animate({
+                        height: "toggle",
+                        opacity: "toggle"
+                    }, "slow");
+                });
+                </script>
+                {% endblock %}
