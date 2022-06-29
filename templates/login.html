@@ -4,19 +4,11 @@ Log In
 {% endblock%}
 
 {% block main%}
+
 <div class="login-page">
 
     <div class="form">
-        {% if message %}
-        <div class="alert alert-warning alert-dismissible fade show"
-            role="alert">
-            <strong>Holy guacamole!</strong> {{message}}
-            <button type="button" class="close" data-dismiss="alert"
-                aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif%}
+        
         <form class="register-form" action="/register" method="post">
             <div class="title-form">Registrarse</div>
             <!--Mensaje de errorrr-->
@@ -47,6 +39,13 @@ Log In
                     <div class="mb-3">
                         <input class="form-control" name="password"
                             placeholder="Contraseña" type="password" required />
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example" name ="rol">
+                            
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Administrador">Administrador</option>
+                          </select>
                     </div>
                     <button type="submit" class="btn btn-outline-dark"
                         style="width: 100%;">Iniciar sesión</button>

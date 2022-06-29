@@ -1,6 +1,6 @@
-from bd_connection import connection
+from bd_connection import admin_connection
 
-c = connection()
+c = admin_connection()
 def calltables():
     try:
         with c.cursor() as cursor:
@@ -9,7 +9,7 @@ def calltables():
             for i in users:
                 list.append(i)
             
-            for f in list:
-                print(f[1:5])
+            #for f in list:
+            #    print(f[1:5])
     except Exception as e:
         print("Ocurrió un error al consultar: ", e) 
